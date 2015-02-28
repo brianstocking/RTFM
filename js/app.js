@@ -21,3 +21,19 @@ app.config(function($routeProvider) {
             redirectTo: '/login'
         })
 })
+
+app.run(function($rootScope, $location, EnvironmentService){
+    $rootScope.$on('$routeChangeStart', function(event, next, current){
+
+        if (EnvironmentService.getUsername() ){
+            $rootScope.username = EnvironmentService.getUsername()
+
+        }
+
+        else {
+            $location.path('/login')
+        }
+
+
+    })
+})

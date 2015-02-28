@@ -9,7 +9,8 @@ app.controller('loginCtrl', function(EnvironmentService, $scope, $location){
     //}
 
     $scope.go = function(username){
-        $location.path('/threads/')
+        EnvironmentService.saveUsername(username)
+        $location.path('/threads')
     };
 
 })
