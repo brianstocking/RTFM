@@ -10,7 +10,12 @@ app.config(function($routeProvider) {
         })
         .when('/threads',{
             templateUrl: 'js/threads/threads.html',
-            controller: 'ThreadCtrl'
+            controller: 'ThreadCtrl',
+            resolve: {
+                threadsRef: function (ThreadService) {
+                    return ThreadService.getThreads();
+                }
+
 
         })
 
